@@ -5,4 +5,4 @@ From the Alxdd Co' team we present
 
 It's a program made by Love2D with which you can add your own libraries and add them to any project. 
 You can log in with GitHub or Google to have your own profile
-![Youtube](https://www.youtube.com/@AlxddCo)
+[Youtube](https://www.youtube.com/@AlxddCo)
