@@ -1,0 +1,4 @@
+Ico://assets/data/icolibs/Inky.png
+Desc:Inky is an unopinonated GUI framework for the LÖVE game framework, though it should work with anything Lua(JIT) based. 
+It is heavily inspired by Helium and React
+ReLnk:'https://github.com/Keyslam/Inky'

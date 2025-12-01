@@ -6,12 +6,13 @@ Bars.selected = 1
 Bars.font = nil
 
 function Bars.load()
-    Bars.font = love.graphics.newFont("assets/fonts/VCR_OSD_MONO1.001.ttf", 20)
+    -- Fuente VCR.ttf en assets/source
+    Bars.font = love.graphics.newFont("assets/source/VCR.ttf", 20)
 
     local entries = {
         {name="Inky", txt="Inky.txt"},
-        {name="Json", txt="Json.txt"},
-        {name="Xml", txt="Xml.txt"},
+        {name="Xml.lua", txt="Xml.txt"},
+        {name="Algo", txt="Algo.txt"},
         {name="Más", txt="Mas.txt"},
     }
 
@@ -28,11 +29,12 @@ function Bars.load()
             icon = nil
         }
 
-        local icoPath = "assets/data/icons/"..entry.name..".png"
+        -- Nueva ubicación de iconos
+        local icoPath = "assets/data/icolibs/"..entry.name..".png"
         if love.filesystem.getInfo(icoPath) then
             Bars.list[i].icon = love.graphics.newImage(icoPath)
         else
-            Bars.list[i].icon = love.graphics.newImage("assets/data/icons/reico.png")
+            Bars.list[i].icon = love.graphics.newImage("assets/data/icolibs/reico.png")
         end
     end
 end
@@ -52,17 +54,19 @@ end
 function Bars.draw()
     for i, bar in ipairs(Bars.list) do
         if i == Bars.selected then
-            love.graphics.setColor(0.7, 0.7, 0.7) -- gris claro
+            love.graphics.setColor(0.7, 0.7, 0.7)
         else
-            love.graphics.setColor(0.2, 0.2, 0.2) -- gris oscuro
+            love.graphics.setColor(0.2, 0.2, 0.2)
         end
         love.graphics.rectangle("fill", bar.x, bar.y, bar.w, bar.h, 15, 15)
 
+        -- Icono más pequeño
         if bar.icon then
             love.graphics.setColor(1,1,1)
-            love.graphics.draw(bar.icon, bar.x + 10, bar.y + 10, 0, 0.5, 0.5)
+            love.graphics.draw(bar.icon, bar.x + 10, bar.y + 9, 0, 1, 1)
         end
 
+        -- Nombre con fuente VCR
         love.graphics.setFont(Bars.font)
         love.graphics.setColor(1,1,1)
         love.graphics.print(bar.name, bar.x + 100, bar.y + 35)

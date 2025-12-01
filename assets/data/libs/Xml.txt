@@ -1,0 +1,4 @@
+Ico://assets/data/icolibs/Xml.lua.png
+Desc:xml2lua is an XML parser written entirely in Lua which doesn’t depend on any external C/C++ library.
+ It works for Lua 5.1 to 5.3
+ReLnk:'https://github.com/manoelcampos/xml2lua'
