@@ -8,11 +8,10 @@ Bars.font = nil
 function Bars.load()
     Bars.font = love.graphics.newFont("assets/fonts/VCR_OSD_MONO1.001.ttf", 20)
 
-    -- Cada barra tiene un nombre y un txt asociado
     local entries = {
         {name="Inky", txt="Inky.txt"},
-        {name="OtroLib", txt="OtroLib.txt"},
-        {name="Algo", txt="Algo.txt"},
+        {name="Json", txt="Json.txt"},
+        {name="Xml", txt="Xml.txt"},
         {name="Más", txt="Mas.txt"},
     }
 
@@ -29,7 +28,6 @@ function Bars.load()
             icon = nil
         }
 
-        -- Intentar cargar icono con el mismo nombre
         local icoPath = "assets/data/icons/"..entry.name..".png"
         if love.filesystem.getInfo(icoPath) then
             Bars.list[i].icon = love.graphics.newImage(icoPath)
@@ -60,13 +58,11 @@ function Bars.draw()
         end
         love.graphics.rectangle("fill", bar.x, bar.y, bar.w, bar.h, 15, 15)
 
-        -- Dibujar icono en la izquierda del rectángulo
         if bar.icon then
             love.graphics.setColor(1,1,1)
             love.graphics.draw(bar.icon, bar.x + 10, bar.y + 10, 0, 0.5, 0.5)
         end
 
-        -- Dibujar nombre con fuente VCR
         love.graphics.setFont(Bars.font)
         love.graphics.setColor(1,1,1)
         love.graphics.print(bar.name, bar.x + 100, bar.y + 35)
